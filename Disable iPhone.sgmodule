@@ -1,0 +1,5 @@
+#!name=Disable iPhone
+#!desc=
+[SSID Setting]
+SSID:Xiaomi_8888_5G suspend=true
+
