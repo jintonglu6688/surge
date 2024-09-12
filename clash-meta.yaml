@@ -1,0 +1,31 @@
+mixed-port: 7890
+external-controller: 127.0.0.1:9090
+allow-lan: false
+mode: rule
+log-level: debug
+ipv6: true
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+    - 114.114.114.114
+proxies:
+  - name: Misaka-Hysteria2
+    type: hysteria2
+    server: 38.148.249.200
+    port: 18714
+    password: d88bf3b4
+    sni: www.bing.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Misaka-Hysteria2
+      
+rules:
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy
